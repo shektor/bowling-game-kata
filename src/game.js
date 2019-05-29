@@ -1,9 +1,13 @@
-function Game() {}
+function Game() {
+  this._score = 0;
+}
 
-Game.prototype.roll = function(pins) {};
+Game.prototype.roll = function(pins) {
+  this._score += pins;
+};
 
 Game.prototype.score = function() {
-  return 0;
+  return this._score;
 };
 
 module.exports = Game;
