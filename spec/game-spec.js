@@ -1,22 +1,28 @@
 var Game = require("../src/game");
 
 describe("Game", function() {
+  var game;
+
+  function manyRolls(nRolls, pins) {
+    for (var i = 0; i < nRolls; i++) {
+      game.roll(pins);
+    }
+  }
+
+  beforeEach(function() {
+    game = new Game();
+  });
+
   describe("Gutter Game", function() {
     it("returns a zero score", function() {
-      var game = new Game();
-      for (var i = 0; i < 20; i++) {
-        game.roll(0);
-      }
+      manyRolls(20, 0);
       expect(game.score()).toBe(0);
     });
   });
 
   describe("All Ones", function() {
     it("returns a twenty score", function() {
-      var game = new Game();
-      for (var i = 0; i < 20; i++) {
-        game.roll(1);
-      }
+      manyRolls(20, 1);
       expect(game.score()).toBe(20);
     });
   });
