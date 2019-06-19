@@ -26,4 +26,14 @@ describe("Game", function() {
       expect(game.score()).toBe(20);
     });
   });
+
+  describe("One Spare", function() {
+    it("adds a bonus roll to spare frame", function() {
+      game.roll(5);
+      game.roll(5);
+      game.roll(3);
+      manyRolls(17, 0);
+      expect(game.score()).toBe(16);
+    })
+  })
 });
