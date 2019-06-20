@@ -10,11 +10,14 @@ Game.prototype.roll = function(pins) {
 };
 
 Game.prototype.score = function() {
-  for (var i = 0; i < this._rolls.length; i++) {
+  var i  = 0;
+  for (var frame = 0; frame < 10; frame++) {
     if ((this._rolls[i] + this._rolls[i+1]) === 10) {
-      this._score += this._rolls[i+2];
+      this._score += (10 + this._rolls[i+2])
+    } else {
+      this._score += (this._rolls[i] + this._rolls[i+1])
     }
-    this._score += this._rolls[i];
+    i += 2;
   }
   return this._score;
 };

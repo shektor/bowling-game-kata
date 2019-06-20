@@ -35,5 +35,14 @@ describe("Game", function() {
       manyRolls(17, 0);
       expect(game.score()).toBe(16);
     })
+
+    it("can identify spare frames", function() {
+      game.roll(5);
+      game.roll(5);
+      game.roll(5);
+      game.roll(3);
+      manyRolls(16, 0);
+      expect(game.score()).toBe(23);
+    })
   })
 });
